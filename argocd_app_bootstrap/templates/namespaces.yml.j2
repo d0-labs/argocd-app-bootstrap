@@ -1,0 +1,10 @@
+{% for namespace in namespaces %}
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ namespace }}
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+    
+{% endfor %}

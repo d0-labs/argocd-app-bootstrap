@@ -1,0 +1,7 @@
+ruamel.yaml==0.16.10
+invoke==1.4.1
+pre-commit==2.4.0
+black==19.10b0
+jinja2==2.11.2
+structlog==20.1.0
+colorama==0.4.4

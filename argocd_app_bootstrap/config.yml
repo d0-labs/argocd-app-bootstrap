@@ -1,0 +1,37 @@
+
+defaults: &defaults
+  name: ArgoCD App Bootstrap
+  git-provider: github.com
+  argocd-admin-email: sre@you.com
+  environments:
+    - dev
+    - qa
+    - prod
+
+development:
+  <<: *defaults
+  argocd:
+    host: localhost
+    port: 8080
+    insecure: true
+
+development_docker:
+  <<: *defaults
+  argocd:
+    host: host.docker.internal
+    port: 8080
+    insecure: true
+
+qa:
+  <<: *defaults
+  argocd:
+    host: localhost
+    port: 8080
+    insecure: true
+
+production:
+  <<: *defaults
+  argocd:
+    host: localhost
+    port: 8080
+    insecure: true

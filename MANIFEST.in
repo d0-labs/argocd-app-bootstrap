@@ -1,0 +1,22 @@
+# Manifest syntax https://docs.python.org/2/distutils/sourcedist.html
+
+# Use this if using package.py to build distribution (see: https://medium.com/@amimahloof/how-to-package-a-python-project-with-all-of-its-dependencies-for-offline-install-7eb240b27418)
+graft wheelhouse
+
+
+recursive-exclude __pycache__  *.pyc *.pyo *.orig
+
+exclude *.js*
+exclude *.git*
+exclude *.coveragerc
+exclude *.sh
+exclude proc*
+exclude pylint*
+exclude README*
+
+include requirements*.*
+recursive-include argocd_app_bootstrap *
+exclude requirements-dev.*
+
+prune .git
+prune venv

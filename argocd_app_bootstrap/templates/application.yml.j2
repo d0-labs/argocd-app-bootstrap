@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ app['name'] }}
+  namespace: argocd
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: {{ namespace }}
+    name: {{ destination_cluster }}
+  project: {{ project_name }}
+  source:
+    path: {{ app['manifest_path'] }}
+    repoURL: {{ app['repo_url'] }}
+    targetRevision: HEAD
+{% if deploy_plugin is defined and deploy_plugin == 'kustomized-helm' %}
+    plugin:
+      name: kustomized-helm
+{% endif %}
